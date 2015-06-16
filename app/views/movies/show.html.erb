@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>Average Rating: <%= stars(@movie.comments.average(:rating)) %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @movie.proper_name %>
+</p>
+
+<p>
+  <strong>Director:</strong>
+  <%= @movie.director %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @movie.description.html_safe %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @movie.year %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @movie.length %>
+</p>
+
+<p>
+  <strong>Format:</strong>
+  <%= @movie.format %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @movie.image%>
+</p>
+
+<h3>Comments</h3>
+<% @movie.comments.descending.each do |comment|  %>
+    <h3><%= time_ago_in_words(comment.created_at)%> ago, <%= comment.author%> said</h3>
+  <p><%= comment.content %></p>
+  <p>Rating: <%= stars(comment.rating)%></p>
+    <% if is_admin?%>
+        <%= link_to "Delete Comment", movie_comment_path(@movie, comment),
+                    data: {confirm: 'Are you sure?', :method => :delete}%>
+    <% end%>
+    <hr>
+<% end %>
+
+<%= render :partial => 'comment_form' %>>
+
+
+<%= link_to 'Email this movie', mail_movie_path(@movie) %>
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>

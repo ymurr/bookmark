@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - bookmarks_development@localhost" uuid="19f1090f-7cb5-4fdd-972c-833151bb5c18">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>bookmarks_development.*</schema-pattern>
+      <default-schemas>bookmarks_development.*</default-schemas>
+    </data-source>
+    <data-source name="PostgreSQL - testruby@localhost" uuid="7a30c19c-b1be-4ad4-9b2e-78efa6d48d9b">
+      <secret-storage>master_key</secret-storage>
+      <user-name>yizhoumurr1</user-name>
+      <schema-pattern>testruby.pg_catalog testruby.public</schema-pattern>
+      <default-schemas>testruby.pg_catalog testruby.public</default-schemas>
+    </data-source>
+  </component>
+</project>
